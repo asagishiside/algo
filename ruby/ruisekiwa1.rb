@@ -1,13 +1,16 @@
-N, X = gets.chomp.split.map(&:to_i)
-A = gets.chomp.split.map(&:to_i)
+N, Q = gets.chomp.split(" ").map(&:to_i)
+A = gets.chomp.split(" ").map(&:to_i)
+
+SUM = [0]
+temp = 0
 A.each do |a|
-  if a == X
-    puts "Yes"
-    return
-  end
+  SUM.push(temp+=a)
 end
 
-puts "No"
+Q.times do |i|
+  l, r = gets.chomp.split.map(&:to_i)
+  puts SUM[r] - SUM[l - 1]
+end
 
 # 入力
 # 10 5
